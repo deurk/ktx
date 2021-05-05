@@ -117,8 +117,8 @@ gedict_t* HelpTeammate() {
 	self->fb.help_teammate_time = g_globalvars.time + 20 + 3 * g_random();
 	selected1 = NULL;
 	selected2 = NULL;
-	best_dist1 = 99999999;
-	best_dist2 = 99999999;
+	best_dist1 = 99999999.0;
+	best_dist2 = 99999999.0;
 	for (head = world; (head = trap_findradius(head, self->s.v.origin, bdist)); ) {
 		if (head->ct == ctPlayer) {
 			if (SameTeam(head, self)) {

@@ -289,16 +289,16 @@ static void BotsModifyAimAtPlayerLogic(gedict_t* self)
 		float pitch_diff, yaw_diff;
 		//float lg_percent = (float)self->ps.wpn[wpLG].hits / max(1, self->ps.wpn[wpLG].attacks);
 
-		pitch_diff = bound(pitch->minimum, fabs(raw_pitch_diff) * pitch->scale, pitch->maximum);
-		yaw_diff = bound(yaw->minimum, fabs(raw_yaw_diff) * yaw->scale, yaw->maximum);
+		pitch_diff = bound(pitch->minimum, fabsf(raw_pitch_diff) * pitch->scale, pitch->maximum);
+		yaw_diff = bound(yaw->minimum, fabsf(raw_yaw_diff) * yaw->scale, yaw->maximum);
 
 		pitch_rnd = dist_random(-pitch_diff, pitch_diff, pitch->multiplier * self->fb.skill.current_volatility);
 		yaw_rnd = dist_random(-yaw_diff, yaw_diff, yaw->multiplier * self->fb.skill.current_volatility);
 
 		if (g_random() < 0.8) {
 			// Randomise the amount but not the side that we're aiming on
-			yaw_rnd = (self->fb.last_rndaim[YAW] > 0 ? 1 : -1) * abs(yaw_rnd);
-			pitch_rnd = (self->fb.last_rndaim[PITCH] > 0 ? 1 : -1) * abs(pitch_rnd);
+			yaw_rnd = (self->fb.last_rndaim[YAW] > 0 ? 1 : -1) * fabsf(yaw_rnd);
+			pitch_rnd = (self->fb.last_rndaim[PITCH] > 0 ? 1 : -1) * fabsf(pitch_rnd);
 		}
 
 		self->fb.last_rndaim_time = g_globalvars.time;

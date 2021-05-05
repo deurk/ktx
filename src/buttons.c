@@ -195,7 +195,7 @@ void SP_func_button()
 
 // self->pos1 = self->s.v.origin;
 	VectorCopy( self->s.v.origin, self->pos1 );
-	ftemp = ( fabs( DotProduct( self->s.v.movedir, self->s.v.size ) ) - self->lip );
+	ftemp = ( fabsf( DotProduct( self->s.v.movedir, self->s.v.size ) ) - self->lip );
 
 	self->pos2[0] = self->pos1[0] + self->s.v.movedir[0] * ftemp;
 	self->pos2[1] = self->pos1[1] + self->s.v.movedir[1] * ftemp;

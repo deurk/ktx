@@ -92,7 +92,7 @@ static qbool obstruction(gedict_t* self, vec3_t new_velocity, vec3_t new_origin,
 
 	VectorClear (velocity_normal);
 	VectorSubtract (old_velocity, new_velocity, delta_velocity);
-	if (fabs (delta_velocity[0]) < 0.1 && fabs (delta_velocity[1]) < 0.1)
+	if (fabsf (delta_velocity[0]) < 0.1 && fabsf (delta_velocity[1]) < 0.1)
 	{
 		VectorClear(self->fb.obstruction_normal);
 		return false;
@@ -106,7 +106,7 @@ static qbool obstruction(gedict_t* self, vec3_t new_velocity, vec3_t new_origin,
 	}
 
 	// If not hitting ground...
-	if (fabs(delta_velocity[2]) < 0.1)
+	if (fabsf(delta_velocity[2]) < 0.1)
 	{
 		vec3_t hor_velocity;
 		VectorCopy (new_velocity, hor_velocity);

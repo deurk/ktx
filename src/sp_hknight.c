@@ -294,7 +294,7 @@ void CheckForCharge ()
 	if ( g_globalvars.time < self->attack_finished )
 		return;
 
-	if ( fabs( self->s.v.origin[2] - PROG_TO_EDICT( self->s.v.enemy )->s.v.origin[2] ) > 20 )
+	if ( fabsf( self->s.v.origin[2] - PROG_TO_EDICT( self->s.v.enemy )->s.v.origin[2] ) > 20 )
 		return;		// too much height change
 
 	VectorSubtract( PROG_TO_EDICT( self->s.v.enemy )->s.v.origin, self->s.v.origin, delta );	

@@ -132,6 +132,10 @@ double fabs( double x ) {
 	return x < 0 ? -x : x;
 }
 
+float fabsf( float x ) {
+	return x < 0 ? -x : x;
+}
+
 //=====================================
 
 static int randSeed = 0;

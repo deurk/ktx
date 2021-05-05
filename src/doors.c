@@ -190,7 +190,7 @@ void door_fire()
 	do
 	{
 		self->s.v.goalentity = EDICT_TO_PROG( activator );	// Who fired us
-		door_go_up( self );
+		door_go_up();
 		self = PROG_TO_EDICT( self->s.v.enemy );
 	}
 	while ( ( self != starte ) && ( self != world ) );
@@ -614,7 +614,7 @@ void SP_func_door()
 	VectorCopy( self->s.v.origin, self->pos1 );
 
 	//
-	tmp = fabs( DotProduct( self->s.v.movedir, self->s.v.size ) ) - self->lip;
+	tmp = fabsf( DotProduct( self->s.v.movedir, self->s.v.size ) ) - self->lip;
 
 	self->pos2[0] = self->pos1[0] + self->s.v.movedir[0] * tmp;
 	self->pos2[1] = self->pos1[1] + self->s.v.movedir[1] * tmp;
@@ -711,14 +711,14 @@ void fd_secret_use( gedict_t * attacker, float take )
 	if ( self->t_width == 0 )
 	{
 		if ( ( int ) ( self->s.v.spawnflags ) & SECRET_1ST_DOWN )
-			self->t_width =  fabs( DotProduct( g_globalvars.v_up, self->s.v.size ) );
+			self->t_width =  fabsf( DotProduct( g_globalvars.v_up, self->s.v.size ) );
 		else
-			self->t_width =  fabs( DotProduct( g_globalvars.v_right, self->s.v.size ));
+			self->t_width =  fabsf( DotProduct( g_globalvars.v_right, self->s.v.size ));
 	}
 
 	if ( self->t_length == 0 )
 		self->t_length =
-		    fabs( DotProduct( g_globalvars.v_forward, self->s.v.size ) );
+		    fabsf( DotProduct( g_globalvars.v_forward, self->s.v.size ) );
 
 	if ( ( int ) ( self->s.v.spawnflags ) & SECRET_1ST_DOWN )
 	{

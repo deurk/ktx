@@ -43,7 +43,7 @@ static qbool right_direction(gedict_t* self)
 	normalize(direction_to_test_marker, test_direction);
 	desired_direction = vectoyaw(test_direction);
 
-	min_one = fabs(desired_direction - current_direction);
+	min_one = fabsf(desired_direction - current_direction);
 
 	// Reduce angle size and try again, incase one was 20 and the other was 340.. 
 	if (desired_direction >= 180) {
@@ -52,7 +52,7 @@ static qbool right_direction(gedict_t* self)
 	if (current_direction >= 180) {
 		current_direction -= 360;
 	}
-	min_two = fabs(desired_direction - current_direction);
+	min_two = fabsf(desired_direction - current_direction);
 
 	return (qbool)(min(min_one, min_two) <= 90);
 }*/

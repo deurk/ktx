@@ -136,7 +136,7 @@ void SP_light_torch_small_walltorch()
 {
 	trap_precache_model( "progs/flame.mdl" );
 	setmodel( self, "progs/flame.mdl" );
-	FireAmbient( self );
+	FireAmbient();
 	makestatic( self );
 }
 
@@ -148,7 +148,7 @@ void SP_light_flame_large_yellow()
 	trap_precache_model( "progs/flame2.mdl" );
 	setmodel( self, "progs/flame2.mdl" );
 	self->s.v.frame = 1;
-	FireAmbient( self );
+	FireAmbient();
 	makestatic( self );
 }
 
@@ -159,7 +159,7 @@ void SP_light_flame_small_yellow()
 {
 	trap_precache_model( "progs/flame2.mdl" );
 	setmodel( self, "progs/flame2.mdl" );
-	FireAmbient( self );
+	FireAmbient();
 	makestatic( self );
 }
 
@@ -170,7 +170,7 @@ void SP_light_flame_small_white()
 {
 	trap_precache_model( "progs/flame2.mdl" );
 	setmodel( self, "progs/flame2.mdl" );
-	FireAmbient( self );
+	FireAmbient();
 	makestatic( self );
 }
 

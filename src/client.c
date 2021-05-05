@@ -3444,7 +3444,7 @@ void PlayerPostThink()
 		if ( !match_in_progress && !match_over && !k_captains && !k_matchLess && !isHoonyModeAny() )
 		{
 			if ( iKey( self, "kf" ) & KF_SPEED ) {
-				float velocity_vert_abs	= fabs(self->s.v.velocity[2]);
+				float velocity_vert_abs	= fabsf(self->s.v.velocity[2]);
 				self->s.v.armorvalue	= (int)(velocity < 1000 ? velocity + 1000 : -velocity);
 				self->s.v.frags			= (int)(velocity) / 1000;
 				self->s.v.ammo_shells   = 100 + (int)(velocity_vert_abs) / 100000000;

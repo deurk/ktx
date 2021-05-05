@@ -75,5 +75,6 @@ double	atan2( double y, double x );
 double	tan( double x );
 int		abs( int n );
 double	fabs( double x );
+float	fabsf( float x );
 double	acos( double x );
 
